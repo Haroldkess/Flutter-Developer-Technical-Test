@@ -1,5 +1,6 @@
 class BrandMessage {
   static const String videoEnded = "video Ended";
+  static const String loaderText = "Loading...";
 }
 
 class TestStages {

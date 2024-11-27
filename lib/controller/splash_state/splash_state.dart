@@ -3,7 +3,7 @@ import 'package:technical_test/controller/functions/operations.dart';
 import 'package:technical_test/model/brand_model/brand_message.dart';
 import 'package:technical_test/model/brand_model/brand_videos.dart';
 import 'package:technical_test/routes/go_nav.dart';
-import 'package:technical_test/view/pages/pre_home_loading.dart';
+import 'package:technical_test/view/pages/pre_home/stacked_layer.dart';
 import 'package:video_player/video_player.dart';
 
 class SplashState extends GetxController {
@@ -30,7 +30,7 @@ class SplashState extends GetxController {
 
   endVideoCondition() {
     if (playerController.value.position == playerController.value.duration) {
-      Go.offUntil(const PreHomeLoading(), transition: Transition.downToUp);
+      Go.offUntil(const PreHomeStackedLayer(), transition: Transition.downToUp);
     }
   }
 
