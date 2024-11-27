@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Go {
@@ -23,13 +24,12 @@ class Go {
   }
 
   /// Similar to Navigation.pushAndRemoveUntil()
-  static Future<dynamic> offUntil(dynamic page,
-      {Transition? transition}) async {
+  static Future<dynamic> offUntil(Widget page, {Transition? transition}) async {
     Get.offUntil(
         GetPageRoute(
-          page: page,
+          page: () => page,
           transition: transition ?? Transition.rightToLeft,
-          transitionDuration: const Duration(milliseconds: 350),
+          transitionDuration: const Duration(milliseconds: 500),
         ),
         (route) => false);
   }
