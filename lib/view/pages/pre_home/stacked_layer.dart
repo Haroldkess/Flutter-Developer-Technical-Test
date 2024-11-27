@@ -2,7 +2,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:technical_test/model/brand_model/brand_assets.dart';
 import 'package:technical_test/model/brand_model/brand_colors.dart';
 import 'package:technical_test/routes/go_nav.dart';
@@ -36,7 +35,7 @@ class _PreHomeStackedLayerState extends State<PreHomeStackedLayer>
 
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 5),
+      duration: const Duration(seconds: 3),
     );
 
     showAnimation();
@@ -60,7 +59,7 @@ class _PreHomeStackedLayerState extends State<PreHomeStackedLayer>
               opacity: 1, // Reverse fade for content
               child: child,
             ),
-            if (_fadeOutPageAnimation.value > 0.0)
+            if (_fadeOutPageAnimation.value > 0.4)
               BackdropFilter(
                 filter: ImageFilter.blur(
                   sigmaX: 20 *
@@ -135,7 +134,7 @@ class _PreHomeStackedLayerState extends State<PreHomeStackedLayer>
         .animate(
       CurvedAnimation(parent: _controller, curve: const Interval(0.4, 0.6)),
     );
-    _fadeOutPageAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+    _fadeOutPageAnimation = Tween<double>(begin: 0.4, end: 1.0).animate(
       CurvedAnimation(
           parent: _controller,
           curve: const Interval(0.47, 1.0)), // Last 2 seconds
@@ -169,7 +168,7 @@ class _PreHomeStackedLayerState extends State<PreHomeStackedLayer>
     });
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        Go.offUntil(const Home(), transition: Transition.fadeIn);
+        Go.offUntil(const Home());
       }
     });
   }

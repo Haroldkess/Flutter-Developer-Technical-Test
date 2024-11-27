@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:technical_test/model/brand_model/brand_assets.dart';
+import 'package:technical_test/view/widgets/logo_widget.dart';
 
 class PreHomeLogo extends StatelessWidget {
   const PreHomeLogo(
@@ -18,12 +17,7 @@ class PreHomeLogo extends StatelessWidget {
       builder: (context, child) {
         final offset = bounceDownUpAnimationValue + moveToTopAnimationValue;
         return Transform.translate(
-          offset: Offset(0, offset),
-          child: SizedBox(
-            width: 200.w,
-            child: Image.asset(BrandAssets.appLogo),
-          ),
-        );
+            offset: Offset(0, offset), child: const LogoWidget());
       },
     );
   }

@@ -24,11 +24,11 @@ class Go {
   }
 
   /// Similar to Navigation.pushAndRemoveUntil()
-  static Future<dynamic> offUntil(Widget page, {Transition? transition}) async {
+  static Future<dynamic> offUntil(Widget page) async {
     Get.offUntil(
         GetPageRoute(
           page: () => page,
-          transition: transition ?? Transition.rightToLeft,
+          transition: Transition.fadeIn,
           transitionDuration: const Duration(milliseconds: 500),
         ),
         (route) => false);

@@ -7,6 +7,7 @@ class AppText extends StatelessWidget {
   final bool? bold;
   final int? lines;
   final TextAlign? align;
+  final bool? addShadow;
 
   const AppText(
       {super.key,
@@ -15,6 +16,7 @@ class AppText extends StatelessWidget {
       this.size,
       this.bold,
       this.lines,
+      this.addShadow,
       this.align});
 
   @override
@@ -28,6 +30,15 @@ class AppText extends StatelessWidget {
             fontSize: size ?? 10,
             fontWeight: bold == true ? FontWeight.w800 : FontWeight.w400,
             color: color ?? Colors.white,
+            shadows: addShadow == true
+                ? [
+                    Shadow(
+                      blurRadius: 7.0,
+                      color: Colors.black.withOpacity(.5),
+                      offset: const Offset(0, 0),
+                    ),
+                  ]
+                : [],
           ),
     );
   }

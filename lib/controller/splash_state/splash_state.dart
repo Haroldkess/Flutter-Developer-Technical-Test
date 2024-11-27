@@ -30,7 +30,7 @@ class SplashState extends GetxController {
 
   endVideoCondition() {
     if (playerController.value.position == playerController.value.duration) {
-      Go.offUntil(const PreHomeStackedLayer(), transition: Transition.downToUp);
+      Go.offUntil(const PreHomeStackedLayer());
     }
   }
 
